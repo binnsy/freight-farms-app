@@ -14,4 +14,8 @@ Run `yarn run test` to execute the unit tests with Jest.
 
 ## Project Description
 
-Simple app created using React. 
+I created a simple 'Hello World' app using React. I organiezd the app having it as module as possible. All of the components are contained in the app.js file. Each component then has its own folder in side of a main components folder. Each individual component folder has:
+ - style file (scss)
+ - test file (jest)
+ - meat of the code (jsx)
+In the src folder I also have an images folder for any image I used.
