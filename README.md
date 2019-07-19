@@ -18,4 +18,5 @@ I created a simple 'Hello World' app using React. I organiezd the app having it 
  - style file (scss)
  - test file (jest)
  - meat of the code (jsx)
+ 
 In the src folder I also have an images folder for any image I used.
