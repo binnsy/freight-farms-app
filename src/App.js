@@ -11,7 +11,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <section className="main">
-        <Headline header="Hello" desc="Hello"/>
+        <Headline header="Hello World" desc="Hello World"/>
         </section>
         <div className="button">
           <HelloButton />

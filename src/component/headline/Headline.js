@@ -16,7 +16,7 @@ class Headline extends Component {
 
     return (
       <div data-test="HeadlineComponent">
-        <h1 data-test="header">{header}</h1>
+        <h4 data-test="header">{header}</h4>
           <p data-test="desc">
             {desc}
           </p>

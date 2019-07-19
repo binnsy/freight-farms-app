@@ -40,65 +40,30 @@ class HelloButton extends Component {
   constructor (props) {
   super(props)
   this.state = {
-    // language: '',
-    // text: ''
-    language: this.getHello()
+    language: '',
+    text: ''
   }
-  // this.submitEvent = this.submitEvent.bind(this);
-}
-//   submitEvent() {
-//     console.log(languages)
-//       // api.fetchQuote()
-//         .then((languages)=>{
-//           this.setState({
-//             language: languages.language,
-//             text: languages.text
-//           })
-//         });
-// }
-
-// componentDidMount () {
-//   // const newLanguage = () => this.setState({ language: this.getHello().language[0] })
-//   // console.log(newLanguage)
-//   this.getHello()
-// //     const newLanguage = () => this.setState({ language: this.getHello() })
-// //     setInterval(newLanguage, 24000)
-//   }
-componentDidMount () {
-  const newLanguage = () => this.setState({ language: this.getHello() })
-  setInterval(newLanguage, 24000)
 }
 
 getHello =() => {
-    console.log(languages)
+    // console.log(languages)
     const random = (Math.random() * languages.length) | 0
-    console.log(languages[random])
-    return languages[random]
+    // console.log(languages[random])
+    const oneLanguage = languages[random]
+    // console.log(oneLanguage)
+    this.setState({
+        language: oneLanguage.language,
+        text: oneLanguage.text
+    })
   }
 
   submitEvent() {
     this.getHello()
-    console.log(languages)
-    const newLanguage = () => this.setState({ language: this.getHello() })
-    
-    // if(this.props.emitEvent) {
-    //   this.props.emitEvent()
-    // }
-
-    // this.setState({
-    //   // language: { language },
-    //   // text: { text }
-    //   languages: this.getHello()
-    //
-    // })
+    // console.log(languages)
   }
 
   render() {
-    // const { language, text } = this.props.languages[this.props.random]
-      const { language } = this.state
-      console.log(language)
-      // let language = this.state.language
-      // console.log(language)
+      const { language, text } = this.state
       // console.log(language)
       // console.log(text)
 
@@ -107,9 +72,12 @@ getHello =() => {
           <button onClick={() => this.submitEvent()} className="button border border-white rounded">
             Hello World
           </button>
-          <div>
-          <h4>{language.language}</h4>
-          <h4>{language.text}</h4>
+          <div className="button-output">
+          <h4 className="output">
+          {language}
+          <br></br>
+          {text}
+          </h4>
         </div>
       </div>
       )
