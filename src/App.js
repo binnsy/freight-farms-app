@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Header from './component/header/Header';
-import HelloButton from './component/button/HelloButton';
-import Headline from './component/headline/Headline';
+import Header from 'component/header';
+import HelloButton from 'component/button';
+import Headline from 'component/headline';
 import './app.scss';
 import 'bootstrap/dist/css/bootstrap.css';
 

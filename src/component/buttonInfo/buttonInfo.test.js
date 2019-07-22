@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, configure } from 'enzyme';
-import ButtonInfo from './ButtonInfo';
+import ButtonInfo from '.';
 import Adapter from 'enzyme-adapter-react-16';
 import checkPropTypes from 'check-prop-types';
 
