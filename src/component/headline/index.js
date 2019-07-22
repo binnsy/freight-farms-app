@@ -1,24 +1,29 @@
-import React, { Component } from 'react';
-import './styles.scss';
-import 'bootstrap/dist/css/bootstrap.css';
+import React, { Component } from 'react'
+import propTypes from 'prop-types'
+import './styles.scss'
+import 'bootstrap/dist/css/bootstrap.css'
 
 class Headline extends Component {
-  render () {
+  render() {
     const { header, desc } = this.props
-
-    if(!header){
-      return null
-    }
 
     return (
       <div data-test="HeadlineComponent">
         <h4 data-test="header">{header}</h4>
-          <p data-test="desc">
-            {desc}
-          </p>
+        <p data-test="desc">{desc}</p>
       </div>
     )
   }
+}
+
+Headline.defaultProps = {
+  header: '',
+  desc: ''
+}
+
+Headline.propTypes = {
+  header: propTypes.string.isRequired,
+  desc: propTypes.string.isRequired
 }
 
 export default Headline

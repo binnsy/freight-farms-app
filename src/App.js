@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import Header from 'component/header';
-import HelloButton from 'component/button';
-import Headline from 'component/headline';
-import './app.scss';
-import 'bootstrap/dist/css/bootstrap.css';
+import React, { Component } from 'react'
+import Header from 'component/header'
+import HelloButton from 'component/button'
+import Headline from 'component/headline'
+import './app.scss'
+import 'bootstrap/dist/css/bootstrap.css'
 
 class App extends Component {
   render() {
@@ -11,7 +11,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <section className="main">
-        <Headline header="Hello World" desc="Hello World"/>
+          <Headline header="Hello World" desc="Hello World" />
         </section>
         <div className="button">
           <HelloButton />
