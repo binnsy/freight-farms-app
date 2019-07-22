@@ -5,9 +5,6 @@ import Adapter from 'enzyme-adapter-react-16';
 
 configure({adapter: new Adapter()});
 
-// tests for functional components vs classes...
-// ...
-
 // could use this in global file for other test components and then import as needed
 const setUp = (props={}) => {
   const component = shallow(<Header {...props} />)

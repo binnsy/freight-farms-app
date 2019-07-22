@@ -3,13 +3,9 @@ import './styles.scss';
 import 'bootstrap/dist/css/bootstrap.css';
 
 class Headline extends Component {
-//   constructor (props) {
-//   super(props)
-// }
-
   render () {
     const { header, desc } = this.props
-
+    console.log('this.props', this.props)
     if(!header){
       return null
     }

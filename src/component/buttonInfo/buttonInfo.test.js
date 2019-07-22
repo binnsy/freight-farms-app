@@ -6,12 +6,6 @@ import checkPropTypes from 'check-prop-types';
 
 configure({adapter: new Adapter()});
 
-// could use this in global file for other test components and then import as needed
-const setUp = (props={}) => {
-  const component = shallow(<ButtonInfo {...props} />)
-  return component
-}
-
 // find each test by attribute (data-test name)
 const findByTestAttr = (component, attr) => {
   const wrapper = component.find(`[data-test='${attr}']`)

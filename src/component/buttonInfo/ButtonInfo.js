@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './styles.scss';
 import 'bootstrap/dist/css/bootstrap.css';
 import PropTypes from 'prop-types';
 
