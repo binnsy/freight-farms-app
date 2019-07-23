@@ -1,9 +1,9 @@
-import React from 'react';
-import { shallow, configure } from 'enzyme';
-import Headline from '.';
-import Adapter from 'enzyme-adapter-react-16';
+import React from 'react'
+import { shallow, configure } from 'enzyme'
+import Headline from '.'
+import Adapter from 'enzyme-adapter-react-16'
 
-configure({adapter: new Adapter()});
+configure({adapter: new Adapter()})
 
 // could use this in global file for other test components and then import as needed
 const setUp = (props={}) => {
