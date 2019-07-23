@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, configure } from 'enzyme';
-import Headline from '.';
+import Headline from './Headline';
 import Adapter from 'enzyme-adapter-react-16';
 
 configure({adapter: new Adapter()});
