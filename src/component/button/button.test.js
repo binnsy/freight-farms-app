@@ -1,16 +1,10 @@
 import React from 'react';
 import { shallow, configure } from 'enzyme';
-import HelloButton from './HelloButton';
+import HelloButton from '.';
 import Adapter from 'enzyme-adapter-react-16';
 import checkPropTypes from 'check-prop-types';
 
 configure({adapter: new Adapter()});
-
-// could use this in global file for other test components and then import as needed
-const setUp = (props={}) => {
-  const component = shallow(<HelloButton {...props} />)
-  return component
-}
 
 // find each test by attribute (data-test name)
 const findByTestAttr = (component, attr) => {
