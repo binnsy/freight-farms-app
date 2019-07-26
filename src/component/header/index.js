@@ -34,10 +34,13 @@ const Header = () => {
 
           <ul className="navbar-nav">
             <li className="nav-item active">
-              <Link to='/' className="nav-link">Home <span className="sr-only">(current)</span></Link>
+              <Link to='/' className="nav-link">Home</Link>
             </li>
             <li className="nav-item">
               <Link to='/hello' className="nav-link">Hello</Link>
+            </li>
+            <li className="nav-item">
+              <Link to='/headline' className="nav-link">Headline</Link>
             </li>
           </ul>
       </nav>

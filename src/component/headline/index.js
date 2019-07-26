@@ -5,12 +5,12 @@ import 'bootstrap/dist/css/bootstrap.css'
 
 class Headline extends Component {
   render() {
-    const { header, desc } = this.props
+    // const { header, desc } = this.props
 
     return (
-      <div data-test="HeadlineComponent">
-        <h4 data-test="header">{header}</h4>
-        <p data-test="desc">{desc}</p>
+      <div className="headline" data-test="HeadlineComponent">
+        <p data-test="header">Hello World</p>
+        <h1 data-test="desc">Hello World</h1>
       </div>
     )
   }

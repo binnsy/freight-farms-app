@@ -2,7 +2,7 @@ import React from 'react'
 // import {useState, useEffect} from 'react'
 import Header from 'component/header'
 import HelloButton from 'component/button'
-// import Headline from 'component/headline'
+import Headline from 'component/headline'
 // import Example from 'component/example'
 import './app.scss'
 // import Navbar from 'react-bootstrap/Navbar'
@@ -24,8 +24,9 @@ function App(props) {
     <Router>
       <div className="App">
         <Header />
-          <Route exact path='/' />
-          <Route path='/hello' component={HelloButton} />
+          <Route path='/' />
+          <Route exact path='/hello' component={HelloButton} />
+          <Route exact path='/headline' component={Headline} />
       </div>
     </Router>
   //       <Header
