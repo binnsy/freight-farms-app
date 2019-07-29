@@ -16,33 +16,27 @@ const getRandomHello = () => {
 }
 
 const usePrevious = (value) => {
-  const ref = useRef();
-  console.log(ref, 'ref')
+  const ref = useRef()
   useEffect(() => {
-    ref.current = (value);
-    console.log(ref.current, 'ref.current')
-  });
+    ref.current = (value)
+  })
   return ref.current;
 }
 const initialState = { language: '', text: '' }
 
 // this is a common pattern for Redux
 const reducer = (state = initialState, action) => {
-
-  (console.log('hi'))
   switch (action.type) {
-
     case 'reset':
       return ''
     case 'fetch_random_hello':
       var { language, text } = getRandomHello()
         return { ...state, language, text }
     case 'fetch_previous_hello':
-    // { language, text } = usePrevious()
+      // { language, text } = usePrevious()
       return { ...state, language, text }
     default:
       return state
-
   }
 }
 
@@ -51,10 +45,10 @@ const HelloButton = () => {
   const initialState = { language: '', text: '' }
   const [state, dispatch] = useReducer(reducer, initialState)
   const prevState = usePrevious(state)
-  console.log(prevState, 'prev state')
 
   useEffect(() => {
     dispatch({ type: 'fetch_random_hello' })
+    dispatch({ type: 'fetch_previous_hello'})
   }, [])
 
   return (
@@ -67,7 +61,6 @@ const HelloButton = () => {
       >
         Hello World
       </button>
-
       <br>< /br>
       <button
         onClick={() => {
