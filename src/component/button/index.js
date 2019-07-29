@@ -1,13 +1,8 @@
-import React, { useState, useEffect, useReducer } from 'react'
+import React, { useEffect } from 'react'
 import './styles.scss'
 import 'bootstrap/dist/css/bootstrap.css'
 import { languages } from './languages'
-
-/**
- * This is completely arbitrary, but as to demonstrate a state management designed to scale
- * For this specific component, doing this would not make a lot of sense
- * See the "HolaButton" below for an example on another option more suited for this
- */
+import { useUndoableReducer, UNDO, REDO } from 'component/reducers'
 
 // api layer
 const getRandomHello = () => {
@@ -15,27 +10,14 @@ const getRandomHello = () => {
   return languages[randomIndex]
 }
 
-
-/**
- * End result desired: Ability to "go back" to the last hello returned
- * https://redux.js.org/recipes/implementing-undo-history#first-attempt-writing-a-reducer
- * 
- * Using that as a guide we can see that if we are going to this without Redux-undo, we should build
- * out an object of arrays for our state instead of a simple { language, text } state
- */
-
 const initialState = { language: '', text: '' }
-
 // this is a common pattern for Redux
-const reducer = (state = initialState, action) => {
+const reducer = (state, action) => {
   switch (action.type) {
     case 'reset':
-      return ''
+      return { ...state, ...initialState }
     case 'fetch_random_hello':
-      var { language, text } = getRandomHello()
-        return { ...state, language, text }
-    case 'fetch_previous_hello':
-      // { language, text } = usePrevious()
+      const { language, text } = getRandomHello()
       return { ...state, language, text }
     default:
       return state
@@ -43,13 +25,14 @@ const reducer = (state = initialState, action) => {
 }
 
 const HelloButton = () => {
-
-  const initialState = { language: '', text: '' }
-  const [state, dispatch] = useReducer(reducer, initialState)
+  const { state, dispatch, canRedo, canUndo } = useUndoableReducer(
+    reducer,
+    initialState
+  )
 
   useEffect(() => {
     dispatch({ type: 'fetch_random_hello' })
-  }, [])
+  }, [dispatch])
 
   return (
     <div className="button-style" data-test="buttonComponent">
@@ -63,14 +46,14 @@ const HelloButton = () => {
       </button>
       <br />
       <button
+        disabled={!canUndo}
         onClick={() => {
-          dispatch({ type: 'fetch_previous_hello' })
+          dispatch({ type: UNDO })
         }}
         className="button border border-white rounded"
       >
         Previous
       </button>
-
       <button
         onClick={() => {
           dispatch({ type: 'reset' })
@@ -79,46 +62,21 @@ const HelloButton = () => {
       >
         Clear
       </button>
+      <button
+        disabled={!canRedo}
+        onClick={() => {
+          dispatch({ type: REDO })
+        }}
+        className="button border border-white rounded"
+      >
+        Redo
+      </button>
 
       <div className="button-output">
         <h4 className="output">
           {state.language}
           <br />
           {state.text}
-        </h4>
-      </div>
-    </div>
-  )
-}
-
-// eslint-disable-next-line
-const HolaButton = () => {
-  const [randomHello, setRandomHello] = useState({ language: '', text: '' })
-
-  const fetchRandomHello = () => {
-    const randomIndex = (Math.random() * languages.length) | 0
-    // opted to not destructure an additional time, but you can visualize as:
-    // const { language, text } = languages[randomIndex]
-    setRandomHello(languages[randomIndex])
-  }
-  // load a `hello` on mount
-  useEffect(() => {
-    fetchRandomHello()
-  }, [])
-
-  return (
-    <div className="button-style" data-test="buttonComponent">
-      <button
-        onClick={fetchRandomHello}
-        className="button border border-white rounded"
-      >
-        Hello World
-      </button>
-      <div className="button-output">
-        <h4 className="output">
-          {randomHello.language}
-          <br />
-          {randomHello.text}
         </h4>
       </div>
     </div>
