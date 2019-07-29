@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer, useRef } from 'react'
+import React, { useState, useEffect, useReducer } from 'react'
 import './styles.scss'
 import 'bootstrap/dist/css/bootstrap.css'
 import { languages } from './languages'
@@ -15,13 +15,6 @@ const getRandomHello = () => {
   return languages[randomIndex]
 }
 
-const usePrevious = (value) => {
-  const ref = useRef()
-  useEffect(() => {
-    ref.current = (value)
-  })
-  return ref.current;
-}
 const initialState = { language: '', text: '' }
 
 // this is a common pattern for Redux
@@ -44,11 +37,9 @@ const HelloButton = () => {
 
   const initialState = { language: '', text: '' }
   const [state, dispatch] = useReducer(reducer, initialState)
-  const prevState = usePrevious(state)
 
   useEffect(() => {
     dispatch({ type: 'fetch_random_hello' })
-    dispatch({ type: 'fetch_previous_hello'})
   }, [])
 
   return (
@@ -61,11 +52,10 @@ const HelloButton = () => {
       >
         Hello World
       </button>
-      <br>< /br>
+      <br />
       <button
         onClick={() => {
           dispatch({ type: 'fetch_previous_hello' })
-          console.log('click', prevState)
         }}
         className="button border border-white rounded"
       >
@@ -75,7 +65,6 @@ const HelloButton = () => {
       <button
         onClick={() => {
           dispatch({ type: 'reset' })
-          console.log('click reset')
         }}
         className="button border border-white rounded"
       >
