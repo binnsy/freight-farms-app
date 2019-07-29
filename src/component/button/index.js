@@ -15,6 +15,15 @@ const getRandomHello = () => {
   return languages[randomIndex]
 }
 
+
+/**
+ * End result desired: Ability to "go back" to the last hello returned
+ * https://redux.js.org/recipes/implementing-undo-history#first-attempt-writing-a-reducer
+ * 
+ * Using that as a guide we can see that if we are going to this without Redux-undo, we should build
+ * out an object of arrays for our state instead of a simple { language, text } state
+ */
+
 const initialState = { language: '', text: '' }
 
 // this is a common pattern for Redux
