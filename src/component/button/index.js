@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer } from 'react'
+import React, { useState, useEffect, useReducer, useRef } from 'react'
 import './styles.scss'
 import 'bootstrap/dist/css/bootstrap.css'
 import { languages } from './languages'
@@ -15,20 +15,43 @@ const getRandomHello = () => {
   return languages[randomIndex]
 }
 
+const usePrevious = (value) => {
+  const ref = useRef();
+  console.log(ref, 'ref')
+  useEffect(() => {
+    ref.current = (value);
+    console.log(ref.current, 'ref.current')
+  });
+  return ref.current;
+}
+const initialState = { language: '', text: '' }
+
 // this is a common pattern for Redux
-const reducer = (state, action) => {
+const reducer = (state = initialState, action) => {
+
+  (console.log('hi'))
   switch (action.type) {
+
+    case 'reset':
+      return ''
     case 'fetch_random_hello':
-      const { language, text } = getRandomHello()
+      var { language, text } = getRandomHello()
+        return { ...state, language, text }
+    case 'fetch_previous_hello':
+    // { language, text } = usePrevious()
       return { ...state, language, text }
     default:
       return state
+
   }
 }
 
 const HelloButton = () => {
+
   const initialState = { language: '', text: '' }
   const [state, dispatch] = useReducer(reducer, initialState)
+  const prevState = usePrevious(state)
+  console.log(prevState, 'prev state')
 
   useEffect(() => {
     dispatch({ type: 'fetch_random_hello' })
@@ -44,6 +67,28 @@ const HelloButton = () => {
       >
         Hello World
       </button>
+
+      <br>< /br>
+      <button
+        onClick={() => {
+          dispatch({ type: 'fetch_previous_hello' })
+          console.log('click', prevState)
+        }}
+        className="button border border-white rounded"
+      >
+        Previous
+      </button>
+
+      <button
+        onClick={() => {
+          dispatch({ type: 'reset' })
+          console.log('click reset')
+        }}
+        className="button border border-white rounded"
+      >
+        Clear
+      </button>
+
       <div className="button-output">
         <h4 className="output">
           {state.language}
