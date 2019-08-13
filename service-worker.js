@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/freight-farms-app/precache-manifest.c290dd4e3428d494e8d156366feae634.js"
+  "/freight-farms-app/precache-manifest.5ca8219b6e76f9e97963e19c4e281209.js"
 );
 
 self.addEventListener('message', (event) => {

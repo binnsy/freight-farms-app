@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/freight-farms-app/static/css/main.c6aa70a9.chunk.css",
-    "main.js": "/freight-farms-app/static/js/main.ddc21dc6.chunk.js",
-    "main.js.map": "/freight-farms-app/static/js/main.ddc21dc6.chunk.js.map",
+    "main.css": "/freight-farms-app/static/css/main.07b5b700.chunk.css",
+    "main.js": "/freight-farms-app/static/js/main.0e73e6da.chunk.js",
+    "main.js.map": "/freight-farms-app/static/js/main.0e73e6da.chunk.js.map",
     "runtime~main.js": "/freight-farms-app/static/js/runtime~main.50cb84ff.js",
     "runtime~main.js.map": "/freight-farms-app/static/js/runtime~main.50cb84ff.js.map",
     "static/css/2.22a7d4ef.chunk.css": "/freight-farms-app/static/css/2.22a7d4ef.chunk.css",
-    "static/js/2.571fd8a8.chunk.js": "/freight-farms-app/static/js/2.571fd8a8.chunk.js",
-    "static/js/2.571fd8a8.chunk.js.map": "/freight-farms-app/static/js/2.571fd8a8.chunk.js.map",
+    "static/js/2.295344be.chunk.js": "/freight-farms-app/static/js/2.295344be.chunk.js",
+    "static/js/2.295344be.chunk.js.map": "/freight-farms-app/static/js/2.295344be.chunk.js.map",
     "index.html": "/freight-farms-app/index.html",
-    "precache-manifest.c290dd4e3428d494e8d156366feae634.js": "/freight-farms-app/precache-manifest.c290dd4e3428d494e8d156366feae634.js",
+    "precache-manifest.5ca8219b6e76f9e97963e19c4e281209.js": "/freight-farms-app/precache-manifest.5ca8219b6e76f9e97963e19c4e281209.js",
     "service-worker.js": "/freight-farms-app/service-worker.js",
     "static/css/2.22a7d4ef.chunk.css.map": "/freight-farms-app/static/css/2.22a7d4ef.chunk.css.map",
-    "static/css/main.c6aa70a9.chunk.css.map": "/freight-farms-app/static/css/main.c6aa70a9.chunk.css.map",
+    "static/css/main.07b5b700.chunk.css.map": "/freight-farms-app/static/css/main.07b5b700.chunk.css.map",
     "static/media/styles.scss": "/freight-farms-app/static/media/earth.e8b334bc.jpg",
     "static/media/app.scss": "/freight-farms-app/static/media/lettuce.f58747de.jpeg"
   }
