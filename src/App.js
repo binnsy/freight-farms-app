@@ -1,24 +1,23 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Header from 'component/header'
 import HelloButton from 'component/button'
 import Headline from 'component/headline'
 import './app.scss'
+import { BrowserRouter as Router, Route } from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.css'
 
-class App extends Component {
-  render() {
-    return (
+function App(props) {
+
+  return (
+    <Router>
       <div className="App">
         <Header />
-        <section className="main">
-          <Headline header="Hello World" desc="Hello World" />
-        </section>
-        <div className="button">
-          <HelloButton />
-        </div>
+          <Route path='/' />
+          <Route exact path='/hello' component={HelloButton} />
+          <Route exact path='/headline' component={Headline} />
       </div>
+    </Router>
     )
   }
-}
 
 export default App
